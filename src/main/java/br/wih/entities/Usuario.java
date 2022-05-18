@@ -5,9 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Entity
@@ -21,18 +20,23 @@ public class Usuario {
     @Setter(AccessLevel.PRIVATE)
     private String id;
 
+    @NotEmpty(message = "Nome não pode ser vazio")
     private String nome;
-
+    @NotEmpty(message = "Login não pode ser vazio")
     private String login;
-
+    @NotEmpty(message = "Senha não pode ser vazia")
     private String senha;
 
     private String email;
 
     private Boolean ativo;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipo_usuario")
     private TipoUsuario tipoUsuario;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_academia")
     private Academia academia;
 
     private Date dataCriacao;

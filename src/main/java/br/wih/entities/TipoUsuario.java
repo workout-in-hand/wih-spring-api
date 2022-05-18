@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tipo_usuario", schema = "public")
@@ -21,6 +22,9 @@ public class TipoUsuario {
     private String nome;
 
     private String descricao;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "tipoUsuario")
+    private List<Usuario> usuarioList;
 
     public TipoUsuario(String nome, String descricao){
         this.nome = nome;
