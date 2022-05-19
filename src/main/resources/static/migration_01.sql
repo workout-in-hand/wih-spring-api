@@ -28,10 +28,13 @@ create table public.usuario(
 );
 
 ALTER TABLE public.academia
-add column id_usuario uuid not null,
+add column id_usuario uuid null,
 ADD CONSTRAINT academia_x_usuario FOREIGN KEY (id_usuario) REFERENCES usuario (id);
 
 insert into public.tipo_usuario values
 (1, 'Professor'),
 (2, 'Aluno');
+
+insert into public.academia values
+('WIH', true, CURRENT_DATE, CURRENT_DATE)
 
