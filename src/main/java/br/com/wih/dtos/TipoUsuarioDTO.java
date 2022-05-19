@@ -1,4 +1,4 @@
-package br.wih.dtos;
+package br.com.wih.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

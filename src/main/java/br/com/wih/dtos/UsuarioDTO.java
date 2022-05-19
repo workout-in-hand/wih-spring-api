@@ -1,10 +1,13 @@
-package br.wih.dtos;
-
-import br.wih.entities.Academia;
-import br.wih.entities.TipoUsuario;
-import lombok.*;
+package br.com.wih.dtos;
 
 import java.util.Date;
+
+import br.com.wih.entities.Academia;
+import br.com.wih.entities.TipoUsuario;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
