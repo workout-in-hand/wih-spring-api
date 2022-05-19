@@ -18,7 +18,6 @@ import java.util.List;
 public class Academia {
 
     @Id
-    @Setter(AccessLevel.PRIVATE)
     private String id;
 
     @NotEmpty(message = "Nome não pode ser vazio")

@@ -16,19 +16,20 @@ import java.util.List;
 public class TipoUsuario {
 
     @Id
-    @Setter(AccessLevel.PRIVATE)
-    private String id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
 
     private String nome;
-
-    private String descricao;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "tipoUsuario")
     private List<Usuario> usuarioList;
 
-    public TipoUsuario(String nome, String descricao){
+    public TipoUsuario(String nome){
         this.nome = nome;
-        this.descricao = descricao;
     }
 
+    @Override
+    public String toString() {
+        return "Tipo Usuario: id = "+id+"; nome = "+nome;
+    }
 }

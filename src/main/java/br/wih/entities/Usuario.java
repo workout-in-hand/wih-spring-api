@@ -22,12 +22,11 @@ public class Usuario {
 
     @NotEmpty(message = "Nome não pode ser vazio")
     private String nome;
-    @NotEmpty(message = "Login não pode ser vazio")
-    private String login;
-    @NotEmpty(message = "Senha não pode ser vazia")
-    private String senha;
 
     private String email;
+
+    @NotEmpty(message = "Senha não pode ser vazia")
+    private String senha;
 
     private Boolean ativo;
 
@@ -43,11 +42,10 @@ public class Usuario {
 
     private Date dataAlteracao;
 
-    public Usuario(String nome, String login, String senha, String email, Boolean ativo, TipoUsuario tipoUsuario, Academia academia, Date dataCriacao, Date dataAlteracao) {
+    public Usuario(String nome, String email, String senha, Boolean ativo, TipoUsuario tipoUsuario, Academia academia, Date dataCriacao, Date dataAlteracao) {
         this.nome = nome;
-        this.login = login;
-        this.senha = senha;
         this.email = email;
+        this.senha = senha;
         this.ativo = ativo;
         this.tipoUsuario = tipoUsuario;
         this.academia = academia;
