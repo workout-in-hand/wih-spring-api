@@ -1,6 +1,7 @@
 package br.com.wih.entities;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,32 +11,53 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity
 @Table(name = "tipo_usuario", schema = "public")
-@Getter
-@Setter
-@NoArgsConstructor
 public class TipoUsuario {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 
-    private String nome;
+	private String nome;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "tipoUsuario")
-    private List<Usuario> usuarioList;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoUsuario")
+	private Set<Usuario> usuarios = new HashSet<Usuario>(0);
 
-    public TipoUsuario(String nome){
-        this.nome = nome;
-    }
+	public TipoUsuario() {}
+	
+	public TipoUsuario(String nome) {
+		this.nome = nome;
+	}
 
-    @Override
-    public String toString() {
-        return "Tipo Usuario: id = "+id+"; nome = "+nome;
-    }
+	@Override
+	public String toString() {
+		return "Tipo Usuario: id = " + id + "; nome = " + nome;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+
 }
